@@ -40,9 +40,7 @@ exports.forgotPassword = async (req, res) => {
         user: "riteshkumarsahu1345@gmail.com",
         pass: "bmdnstzqvkxfkgbj", // Use an app password, not your main password
       },
-      tls: {
-        rejectUnauthorized: false,
-      },
+
     });
     const resetLink = `http://localhost:5173/reset-password/${resetToken}`; // Change to your frontend URL
     const mailOptions = {
