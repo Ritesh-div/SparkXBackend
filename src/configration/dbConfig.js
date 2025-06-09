@@ -18,7 +18,7 @@
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/SparkX', {});
+mongoose.connect(process.env.MONGODB_URI, {});
 
 mongoose.connection.on('connected', () => {
   console.log('MongoDB connected successfully');
