@@ -7,15 +7,17 @@ const cors = require("cors");
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: "https://your-frontend.netlify.app",
+  origin: `${process.env.CLIENT_URL || "http://localhost:3000"}`,
   credentials: true,
 }));
 // Connect to MongoDB
-mongoose
-  .connect("mongodb://localhost:27017/SparkX", {
+mongoose.connect(
+  `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.ag9bxwz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`,
+  {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  })
+  }
+)
   .then(() => {
     console.log("MongoDB connected");
   })
