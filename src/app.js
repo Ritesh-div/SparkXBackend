@@ -12,7 +12,7 @@ app.use(cors({
 }));
 // Connect to MongoDB
 mongoose.connect(
-  `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.ag9bxwz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`,
+  process.env.MONGODB_URI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
