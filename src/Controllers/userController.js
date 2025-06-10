@@ -42,7 +42,7 @@ exports.forgotPassword = async (req, res) => {
       },
 
     });
-    const resetLink = `http://localhost:5173/reset-password/${resetToken}`; // Change to your frontend URL
+    const resetLink = `${process.env.CLIENT_URL}/reset-password/${resetToken}`; // Change to your frontend URL
     const mailOptions = {
       from: "riteshkumarsahu1345@gmail.com",
       to: user.email,
